@@ -15,7 +15,7 @@ import com.androiddevs.mvvmnewsapp.util.Resource
 
 class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     lateinit var viewModel: NewsViewModel
-    private var newsAdapter  = NewsAdapter()
+    private var newsAdapter = NewsAdapter()
     private lateinit var binding: FragmentBreakingNewsBinding
     private val TAG = "BreakingNewsFragment"
 
