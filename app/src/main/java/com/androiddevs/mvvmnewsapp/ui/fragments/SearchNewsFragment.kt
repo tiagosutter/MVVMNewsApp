@@ -3,9 +3,11 @@ package com.androiddevs.mvvmnewsapp.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddevs.mvvmnewsapp.R
 import com.androiddevs.mvvmnewsapp.adapter.NewsAdapter
@@ -33,6 +35,13 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
         setupRecyclerView()
 
         registerObserver()
+
+        newsAdapter.setOnItemClickListener { article ->
+            findNavController().navigate(
+                R.id.action_searchNewsFragment_to_articleFragment,
+                bundleOf("article" to article)
+            )
+        }
 
         var job: Job? = null
         binding.etSearch.addTextChangedListener { editable ->
