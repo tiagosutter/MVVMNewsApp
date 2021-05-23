@@ -9,8 +9,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.androiddevs.mvvmnewsapp.NewsApplication
-import com.androiddevs.mvvmnewsapp.models.Article
-import com.androiddevs.mvvmnewsapp.models.NewsResponse
+import com.androiddevs.mvvmnewsapp.responses.Article
+import com.androiddevs.mvvmnewsapp.responses.NewsResponse
 import com.androiddevs.mvvmnewsapp.repository.NewsRepository
 import com.androiddevs.mvvmnewsapp.util.Resource
 import kotlinx.coroutines.launch

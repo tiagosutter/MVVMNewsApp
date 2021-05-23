@@ -2,7 +2,7 @@ package com.androiddevs.mvvmnewsapp.repository
 
 import com.androiddevs.mvvmnewsapp.api.RetrofitInstance
 import com.androiddevs.mvvmnewsapp.db.ArticleDatabase
-import com.androiddevs.mvvmnewsapp.models.Article
+import com.androiddevs.mvvmnewsapp.responses.Article
 
 class NewsRepository(
     private val db: ArticleDatabase
