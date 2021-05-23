@@ -6,4 +6,7 @@
     <string name="article_saved">Article Saved</string>
     <string name="article_deleted">Article Deleted</string>
     <string name="undo_delete_action">Undo</string>
+    <string name="search">Search…</string>
+    <string name="save_article">Save Article</string>
+    <string name="article_image_description">Article Image</string>
 </resources>

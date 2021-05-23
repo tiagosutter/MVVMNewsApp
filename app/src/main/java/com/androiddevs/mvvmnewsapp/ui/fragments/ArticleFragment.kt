@@ -12,7 +12,7 @@ import com.androiddevs.mvvmnewsapp.ui.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
-    lateinit var viewModel: NewsViewModel
+    private lateinit var viewModel: NewsViewModel
     private lateinit var binding: FragmentArticleBinding
     private val args: ArticleFragmentArgs by navArgs()
 
