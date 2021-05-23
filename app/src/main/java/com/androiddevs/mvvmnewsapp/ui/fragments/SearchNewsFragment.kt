@@ -67,6 +67,9 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                         newsAdapter.differ.submitList(newsResponse.articles.toList())
                         val totalPages = newsResponse.totalResults / Constants.QUERY_PAGE_SIZE + 2
                         isLastPage = viewModel.searchNewsPage == totalPages
+                        if (isLastPage) {
+                            binding.rvSearchNews.setPadding(0, 0, 0, 0)
+                        }
                     }
                 }
                 is Resource.Error -> {
@@ -112,8 +115,6 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
             if(shouldPaginate) {
                 viewModel.searchNews(binding.etSearch.text.toString())
                 isScrolling = false
-            } else {
-                binding.rvSearchNews.setPadding(0, 0, 0, 0)
             }
         }
 
