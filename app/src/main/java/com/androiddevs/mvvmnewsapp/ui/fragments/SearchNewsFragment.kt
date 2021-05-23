@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -26,7 +27,7 @@ import kotlinx.coroutines.launch
 
 class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     lateinit var viewModel: NewsViewModel
-    private var newsAdapter  = NewsAdapter()
+    private var newsAdapter = NewsAdapter()
     private lateinit var binding: FragmentSearchNewsBinding
     private val TAG = "SearchNewsFragment"
 
@@ -76,6 +77,8 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                     hideProgressBar()
                     response.message?.let { message ->
                         Log.e(TAG, "An error occurred: $message")
+                        Toast.makeText(activity, "An error occurred: $message", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
                 is Resource.Loading -> showProgressBar()
@@ -112,7 +115,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
             val isTotalMoreThanVisible = totalItemCount >= Constants.QUERY_PAGE_SIZE
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning &&
                     isTotalMoreThanVisible && isScrolling
-            if(shouldPaginate) {
+            if (shouldPaginate) {
                 viewModel.searchNews(binding.etSearch.text.toString())
                 isScrolling = false
             }
@@ -120,7 +123,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
 
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-            if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
                 isScrolling = true
             }
         }
